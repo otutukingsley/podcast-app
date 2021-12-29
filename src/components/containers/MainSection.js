@@ -5,7 +5,7 @@ import SearchScreen from '../../screens/SearchScreen'
 import PodcastDetailsScreen from '../../screens/PodcastDetailsScreen'
 import GenreListScreen from '../../screens/GenreListScreen'
 
-const MainSection = () => {
+const MainSection = ({ handlePlay, handlePause }) => {
   return (
     <>
       <main className=" player-section pl-0 md:pl-60  min-h-screen min-w-full">
@@ -15,7 +15,13 @@ const MainSection = () => {
           <Route
             exact
             path="/podcast/:collectionId"
-            render={(props) => <PodcastDetailsScreen {...props} />}
+            render={(props) => (
+              <PodcastDetailsScreen
+                {...props}
+                handlePlay={handlePlay}
+                handlePause={handlePause}
+              />
+            )}
           />
           <Route
             exact
